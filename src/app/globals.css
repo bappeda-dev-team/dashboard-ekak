@@ -19,8 +19,20 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (min-width: 150%) {
+  .hide-on-zoom {
+    display: none;
+  }
+}
+
+@media (-moz-device-pixel-ratio: 1.5) { /* Firefox */
+  .hide-on-zoom {
+    display: none;
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.5) and (transform-origin) { /* Safari & Chrome (older) */
+  .hide-on-zoom {
+    display: none;
+  }
 }
