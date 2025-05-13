@@ -1,34 +1,16 @@
 'use client'
 
 import Image from "next/image";
-import { Button } from "@mui/material";
-import './globals.css';
-import { useState, useEffect } from "react";
 import Link from "next/link";
+import './globals.css';
 
 export default function Home() {
 
-  const [Zoom, setZoom] = useState<boolean>(false);
-
-  useEffect(() => {
-    const handleZoomCheck = () => {
-      const zoomLevel = window.devicePixelRatio;
-      const zoomFactor = window.outerWidth / window.innerWidth;
-
-      if (zoomLevel >= 2.5 || zoomFactor >= 2.5) {
-        setZoom(true);
-      } else {
-        setZoom(false);
-      }
-    };
-
-    window.addEventListener('resize', handleZoomCheck);
-    handleZoomCheck(); // Panggil saat komponen mount
-
-    return () => {
-      window.removeEventListener('resize', handleZoomCheck);
-    };
-  }, []);
+  // const authUrl = process.env.NEXT_PUBLIC_AUTH_URL || "#";
+  const urlPerencanaan = process.env.NEXT_PUBLIC_PERENCANAAN || "#";
+  const urlRealisasi = process.env.NEXT_PUBLIC_REALISASI || "#";
+  const urlTpp = process.env.NEXT_PUBLIC_TPP || "#";
+  const urlLaporan = process.env.NEXT_PUBLIC_LAPORAN || "#";
 
   return (
     <div className="h-screen">
@@ -42,13 +24,13 @@ export default function Home() {
           />
           <h1 className="font-bold text-2xl text-black mb-2">KOTA SEMARANG</h1>
         </div>
-        <Link href='#'>
+        {/* <Link href="#">
           <Button variant="outlined" color="error">Keluar</Button>
-        </Link>
+        </Link> */}
       </header>
       <main className="flex flex-col items-center justify-center gap-10 px-15 py-5 mt-10">
         {/* PERENCANAAN */}
-        <div className="w-full flex gap-10 items-center p-8 rounded-2xl shadow-xl hover:bg-yellow-400 hover:text-white cursor-pointer">
+        <Link className="w-full flex gap-10 items-center p-8 rounded-2xl shadow-xl hover:bg-yellow-400 hover:text-white cursor-pointer" href={urlPerencanaan}>
           <div className="max-w-[100px]">
             <Image
               src="/logo.png"
@@ -60,11 +42,10 @@ export default function Home() {
           </div>
           <div className="flex flex-col gap-2 mb-2">
             <h1 className="uppercase text-2xl font-bold">perencanaan</h1>
-            <h1 className={`${Zoom ? 'hidden' : ''}`}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut officiis cupiditate sit amet optio eos recusandae non libero odio pariatur? Voluptate itaque, impedit fuga consequuntur dicta sint esse neque expedita?</h1>
           </div>
-        </div>
-        {/* REALISASI */}
-        <div className="w-full flex gap-10 items-center p-8 rounded-2xl shadow-xl hover:bg-yellow-400 hover:text-white cursor-pointer">
+        </Link>
+        <Link className="w-full flex gap-10 items-center p-8 rounded-2xl shadow-xl hover:bg-yellow-400 hover:text-white cursor-pointer" href={urlRealisasi}>
+          {/* REALISASI */}
           <div className="max-w-[100px]">
             <Image
               src="/logo.png"
@@ -76,11 +57,10 @@ export default function Home() {
           </div>
           <div className="flex flex-col gap-2 mb-2">
             <h1 className="uppercase text-2xl font-bold">realisasi</h1>
-            <h1 className={`${Zoom ? 'hidden' : ''}`}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut officiis cupiditate sit amet optio eos recusandae non libero odio pariatur? Voluptate itaque, impedit fuga consequuntur dicta sint esse neque expedita?</h1>
           </div>
-        </div>
-        {/* TPP */}
-        <div className="w-full flex gap-10 items-center p-8 rounded-2xl shadow-xl hover:bg-yellow-400 hover:text-white cursor-pointer">
+        </Link>
+        <Link className="w-full flex gap-10 items-center p-8 rounded-2xl shadow-xl hover:bg-yellow-400 hover:text-white cursor-pointer" href={urlTpp}>
+          {/* TPP */}
           <div className="max-w-[100px]">
             <Image
               src="/logo.png"
@@ -92,9 +72,23 @@ export default function Home() {
           </div>
           <div className="flex flex-col gap-2 mb-2">
             <h1 className="uppercase text-2xl font-bold">tpp</h1>
-            <h1 className={`${Zoom ? 'hidden' : ''}`}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut officiis cupiditate sit amet optio eos recusandae non libero odio pariatur? Voluptate itaque, impedit fuga consequuntur dicta sint esse neque expedita?</h1>
           </div>
-        </div>
+        </Link>
+        {/* LAPORAN */}
+        <Link className="w-full flex gap-10 items-center p-8 rounded-2xl shadow-xl hover:bg-yellow-400 hover:text-white cursor-pointer" href={urlLaporan}>
+          <div className="max-w-[100px]">
+            <Image
+              src="/logo.png"
+              alt="logo"
+              width={100}
+              height={100}
+              layout="responsive"
+            />
+          </div>
+          <div className="flex flex-col gap-2 mb-2">
+            <h1 className="uppercase text-2xl font-bold">Laporan</h1>
+          </div>
+        </Link>
       </main >
     </div >
   );
