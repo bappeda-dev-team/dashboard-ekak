@@ -66,13 +66,17 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 # Environment variables must be redefined at run time
+ARG NEXT_PUBLIC_PERENCANAAN
+ARG NEXT_PUBLIC_REALISASI
+ARG NEXT_PUBLIC_TPP
+ARG NEXT_PUBLIC_LAPORAN
 
 ENV NEXT_PUBLIC_PERENCANAAN=$NEXT_PUBLIC_PERENCANAAN
 ENV NEXT_PUBLIC_REALISASI=$NEXT_PUBLIC_REALISASI
 ENV NEXT_PUBLIC_TPP=$NEXT_PUBLIC_TPP
 ENV NEXT_PUBLIC_LAPORAN=$NEXT_PUBLIC_LAPORAN
 # Uncomment the following line to disable telemetry at run time
-ENV NEXT_TELEMETRY_DISABLED 1
+ENV NEXT_TELEMETRY_DISABLED=1
 
 # Note: Don't expose ports here, Compose will handle that for us
 
