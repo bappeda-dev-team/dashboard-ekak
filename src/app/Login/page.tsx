@@ -1,8 +1,7 @@
 'use client'
 
 import Image from "next/image";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { TbEye, TbEyeClosed } from "react-icons/tb";
 import Link from "next/link";
@@ -14,10 +13,8 @@ interface FormValues {
 
 const Login = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
+    const { register, formState: { errors } } = useForm<FormValues>();
     const [showPassword, setShowPassword] = useState<boolean>(false);
-    const [Proses, setProses] = useState<boolean>(false);
-    const router = useRouter();
 
     return (
         <div className="flex flex-wrap justify-center items-center h-screen"
@@ -81,15 +78,8 @@ const Login = () => {
                                 <button
                                     className="w-full px-3 py-1 bg-white rounded-xl cursor-pointer hover:bg-slate-200"
                                     type="submit"
-                                    disabled={Proses}
                                 >
-                                    {Proses ?
-                                        <span className="flex">
-                                            Login...
-                                        </span>
-                                        :
-                                        "LOGIN"
-                                    }
+                                    LOGIN
                                 </button>
                             </Link>
                         </form>
