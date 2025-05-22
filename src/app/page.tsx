@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import './globals.css';
+import { TbLogout } from "react-icons/tb";
+import { Button } from "@mui/material";
 
 export default function Home() {
 
@@ -24,13 +26,20 @@ export default function Home() {
           />
           <h1 className="font-bold text-2xl text-black mb-2">E-MANER PEMERINTAH KOTA SEMARANG</h1>
         </div>
-        {/* <Link href="#">
-          <Button variant="outlined" color="error">Keluar</Button>
-        </Link> */}
+        <Link href="/Login">
+          <Button 
+            className="flex items-center gap-1"
+            variant="outlined"
+            color="error"
+          >
+            <TbLogout />
+            LOGOUT
+          </Button>
+        </Link>
       </header>
       <main className="flex flex-col items-center justify-center gap-10 px-15 py-5 mt-10">
         {/* KEPEGAWAIAN */}
-        <Link className="w-full flex gap-10 items-center p-8 rounded-2xl shadow-xl hover:bg-yellow-400 hover:text-white cursor-pointer border border-gray-300" href={urlPerencanaan}>
+        <Link className="w-full flex gap-10 items-center p-8 rounded-2xl shadow-xl hover:bg-yellow-400 hover:text-white cursor-pointer border border-gray-300" href="#">
           <div className="max-w-[100px]">
             <Image
               src="/logo.png"
