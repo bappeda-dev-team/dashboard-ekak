@@ -7,10 +7,13 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: bappeda-dev-team/dashboard-ekak
+  NEXT_PUBLIC_AUTH_URL: '#'
   NEXT_PUBLIC_PERENCANAAN: http://localhost:3000/perencanaan
   NEXT_PUBLIC_REALISASI: http://localhost:3000/realisasi
   NEXT_PUBLIC_TPP: http://localhost:3000/tpp
   NEXT_PUBLIC_LAPORAN: http://localhost:3000/laporan
+  NEXT_PUBLIC_BRANDING_TITLE: 'E-MANER'
+  NEXT_PUBLIC_BRANDING_CLIENT_NAME: 'PEMERINTAH'
 
 jobs:
   build:
@@ -50,10 +53,13 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           build-args: |
+            NEXT_PUBLIC_AUTH_URL=${{ env.NEXT_PUBLIC_AUTH_URL }}
             NEXT_PUBLIC_PERENCANAAN=${{ env.NEXT_PUBLIC_PERENCANAAN }}
             NEXT_PUBLIC_REALISASI=${{ env.NEXT_PUBLIC_REALISASI }}
             NEXT_PUBLIC_TPP=${{ env.NEXT_PUBLIC_TPP }}
             NEXT_PUBLIC_LAPORAN=${{ env.NEXT_PUBLIC_LAPORAN }}
+            NEXT_PUBLIC_BRANDING_TITLE=${{ env.NEXT_PUBLIC_BRANDING_TITLE }}
+            NEXT_PUBLIC_BRANDING_CLIENT_NAME=${{ env.NEXT_PUBLIC_BRANDING_CLIENT_NAME }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
 

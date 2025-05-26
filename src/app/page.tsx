@@ -2,6 +2,7 @@
 
 import LinkItem from "@/component/LinkItem";
 import { useUrlContext } from '@/context/UrlContext'; // Adjust the path accordingly
+import { useBrandingContext } from '@/context/BrandingContext'; // Adjust the path accordingly
 import { Button } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,6 +12,7 @@ import './globals.css';
 export default function Home() {
 
   const { authUrl, perencanaanUrl, realisasiUrl, tppUrl, laporanUrl } = useUrlContext();
+  const { branding } = useBrandingContext();
 
   const linksMenu = [
     { href: perencanaanUrl, title: "Perencanaan", imgSrc: "/logo.png", enabled: true },
@@ -18,11 +20,6 @@ export default function Home() {
     { href: laporanUrl, title: "Laporan", imgSrc: "/logo.png", enabled: true },
     { href: tppUrl, title: "TPP", imgSrc: "/logo.png", enabled: true },
   ];
-
-  // TODO: pindah ke context dan ambil dari env
-  const branding = {
-    title: 'test'
-  }
 
   return (
     <div className="h-screen">
