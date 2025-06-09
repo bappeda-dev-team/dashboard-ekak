@@ -5,7 +5,13 @@ const nextConfig: NextConfig = {
   output: "standalone",
   allowedDevOrigins: ['kertaskerja.local', '*.kertaskerja.local'],
   images: {
-    domains: ['cdnkk.zeabur.app']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdnkk.zeabur.app',
+        pathname: '**'
+      }
+    ]
   }
 };
 
