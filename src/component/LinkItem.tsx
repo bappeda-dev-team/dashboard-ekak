@@ -20,7 +20,6 @@ const LinkItem: React.FC<LinkItemProps> = ({ href, title, imgSrc }) => {
           alt={title}
           width={100}
           height={100}
-          layout="responsive"
         />
       </div>
       <div className="flex flex-col gap-2 mb-2">

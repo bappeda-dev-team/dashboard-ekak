@@ -3,24 +3,27 @@
 import { createContext, useContext } from "react"
 
 interface BrandingContextType {
-  title: string;
-  clientName: string;
-  branding: {
-    title: string
-  }
+  title: string,
+  description: string,
+  logo: string
 }
 
-const BRANDING_TITLE = process.env.NEXT_PUBLIC_BRANDING_TITLE || "";
-const BRANDING_CLIENT_NAME = process.env.NEXT_PUBLIC_BRANDING_CLIENT_NAME || "";
+const BRANDING_TITLE = process.env.NEXT_PUBLIC_BRANDING_TITLE || 'KERTAS-KERJA';
+const BRANDING_CLIENT_NAME = process.env.NEXT_PUBLIC_BRANDING_CLIENT_NAME || '-';
+const BRANDING_CLIENT_LOGO = process.env.NEXT_PUBLIC_LOGO_URL || "/logo.png";
+const brandingTitle = BRANDING_TITLE + " " + BRANDING_CLIENT_NAME
 
+export const appBranding: BrandingContextType = {
+  title: brandingTitle,
+  description: 'App Kertas Kerja',
+  logo: BRANDING_CLIENT_LOGO,
+}
 // context
 const BrandingContext = createContext<BrandingContextType | undefined>(undefined);
 
 export function BrandingProvider({ children }: Readonly<{ children: React.ReactNode; }>) {
-  const brandingTitle = BRANDING_TITLE + " " + BRANDING_CLIENT_NAME
-
   return (
-    <BrandingContext.Provider value={{ title: BRANDING_TITLE, clientName: BRANDING_CLIENT_NAME, branding: { title: brandingTitle } }}>
+    <BrandingContext.Provider value={appBranding}>
       {children}
     </BrandingContext.Provider>
   );
