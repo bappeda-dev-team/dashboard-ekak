@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build-image": "docker build -t dashboard-ui:dev --build-arg NEXT_PUBLIC_AUTH_URL='/oauth2/authorization/keycloak' --build-arg NEXT_PUBLIC_PERENCANAAN='/perencanaan' --build-arg NEXT_PUBLIC_REALISASI='/realisasi' --build-arg NEXT_PUBLIC_BRANDING_TITLE='E-MANER' --build-arg NEXT_PUBLIC_BRANDING_CLIENT_NAME='KOTA SEMARANG v2' --build-arg NEXT_PUBLIC_LOGO_URL='https://cdnkk.zeabur.app/api/cdn/download/images/universal.png' ."
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
