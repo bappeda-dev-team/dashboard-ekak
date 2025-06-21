@@ -5,7 +5,7 @@ import { useBrandingContext } from '@/context/BrandingContext'; // Adjust the pa
 import LinkItem from "@/component/LinkItem";
 
 export default function MainMenu() {
-  const { perencanaanUrl, realisasiUrl, tppUrl, laporanUrl } = useUrlContext();
+  const { perencanaanUrl, realisasiUrl, tppUrl, laporanUrl, manriskUrl } = useUrlContext();
   const { logo } = useBrandingContext();
 
   // default logo
@@ -16,6 +16,7 @@ export default function MainMenu() {
     { href: realisasiUrl, title: "Realisasi", imgSrc: logoSrc, enabled: true },
     { href: laporanUrl, title: "Laporan", imgSrc: logoSrc, enabled: true },
     { href: tppUrl, title: "TPP", imgSrc: logoSrc, enabled: true },
+    { href: manriskUrl, title: "Manrisk", imgSrc: logoSrc, enabled: true },
   ];
 
   return (
