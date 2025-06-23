@@ -16,7 +16,6 @@ export default function MainMenu() {
     { href: realisasiUrl, title: "Realisasi", imgSrc: logoSrc, enabled: true },
     { href: laporanUrl, title: "Laporan", imgSrc: logoSrc, enabled: true },
     { href: tppUrl, title: "TPP", imgSrc: logoSrc, enabled: true },
-    { href: manriskUrl, title: "Manrisk", imgSrc: logoSrc, enabled: true },
   ];
 
   return (
