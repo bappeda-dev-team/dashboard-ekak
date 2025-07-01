@@ -18,7 +18,7 @@ export default function Home() {
     authenticate().then((res) => {
       setUser(res);
     })
-  }, [user])
+  }, [])
 
   return (
     <div className="h-screen">
