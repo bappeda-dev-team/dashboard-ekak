@@ -15,10 +15,16 @@ export default function Home() {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    authenticate().then((res) => {
-      setUser(res);
-    })
-  }, [])
+    const fetchUser = async () => {
+      try {
+        const res = await authenticate();
+        setUser(res);
+      } catch (err) {
+        console.error('Autentikasi gagal', err);
+      }
+    };
+    fetchUser();
+  }, []);
 
   return (
     <div className="h-screen">
