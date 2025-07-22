@@ -15,7 +15,8 @@ export default function MainMenu() {
         { href: perencanaanUrl, title: "Perencanaan", imgSrc: logoSrc, enabled: true },
         { href: realisasiUrl, title: "Realisasi", imgSrc: logoSrc, enabled: true },
         { href: laporanUrl, title: "Laporan", imgSrc: logoSrc, enabled: true },
-        { href: peraturanUrl, title: "Peraturan Perundang-undangan, dan Dokumen Lainnya", imgSrc: logoSrc, enabled: true },
+        { href: tppUrl, title: "TPP", imgSrc: logoSrc, enabled: false },
+        { href: peraturanUrl, title: "Peraturan Perundang-undangan dan Dokumen Lainnya", imgSrc: logoSrc, enabled: true },
     ];
 
     return (
